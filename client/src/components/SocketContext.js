@@ -3,7 +3,6 @@ import React, {
   useState,
   useRef,
   useEffect,
-  useCallback,
 } from "react";
 import { io } from "socket.io-client";
 import Peer from "simple-peer";
