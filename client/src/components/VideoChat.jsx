@@ -38,6 +38,7 @@ const VideoChat = () => {
             </Typography>
             <video
               playsInline
+              muted
               ref={myVideo}
               autoPlay
               className={classes.video}
