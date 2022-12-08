@@ -31,7 +31,7 @@ const ContextProvider = ({ children }) => {
         audio: true,
       });
       setStream(st);
-      myVideo.current.srcObject = st;
+      // myVideo.current.srcObject = st;
     }
     getStream();
     socket.on("me", (id) => setMe(id));
@@ -40,7 +40,11 @@ const ContextProvider = ({ children }) => {
       setCall({ isReceivedCall: true, from, name: callerName, signal });
     });
   }, []);
-
+  useEffect(() => {
+    if (stream) {
+      myVideo.current.srcObject = stream;
+    }
+  }, [stream]);
   const answerCall = () => {
     setCallAccepted(true);
     const peer = new Peer({ initiator: false, trickle: false, stream });
